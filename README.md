@@ -12,7 +12,7 @@ Le message est ensuite **envoyé automatiquement sur Discord** grâce à un **we
 - 📨 Envoi du signalement sur **Discord (webhook)**
 - 🔔 **Notification automatique** côté joueur après l’envoi
 - ⚙️ **Fichier `config.lua`** pour personnaliser facilement le message, la commande, et le webhook
-- 💡 Aucune limite de temps entre chaque signalement
+- 💡 Est surtout Aucun Print Client !!
 
 ---
 
