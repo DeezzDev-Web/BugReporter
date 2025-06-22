@@ -10,7 +10,7 @@ Le message est ensuite **envoyé automatiquement sur Discord** grâce à un **we
 
 - 📋 Menu propre et interactif avec **RageUI**
 - 📨 Envoi du signalement sur **Discord (webhook)**
-- 🔔 **Notification automatique** toute les 15 min (possible de le confi)
+- 🔔 **Notification automatique** côté joueur après l’envoi
 - ⚙️ **Fichier `config.lua`** pour personnaliser facilement le message, la commande, et le webhook
 - 💡 Aucune limite de temps entre chaque signalement
 
@@ -22,7 +22,7 @@ Le message est ensuite **envoyé automatiquement sur Discord** grâce à un **we
 2. Ajoutez cette ligne dans votre `server.cfg` :
 
 ```cfg
-ensure BugReporter
+ensure bugreport
 ```
 
 3. Ouvrez le fichier `config.lua` et configurez :  
@@ -36,36 +36,20 @@ ensure BugReporter
 ```lua
 Config = {}
 
--- Configuration Menu
-Config.RegisterCommandName = "BUG"
-Config.TitreDuMenu = "BUG MENU" -- nil si vous voulez pas de texte
-Config.NomBouton1 = "Signalé un bug"
-Config.Description1 = "Vous devez renseigner le bug que vous avez aperçu en jeu, puis envoyer le message"
-Config.NomBouton2 = "Envoyez votre signalement"
-Config.Description2 = "Après avoir cliqué sur ce bouton, le message sera envoyé aux membres du staff. Merci de ne pas abuser de cette fonctionnalité, tout abus sera sanctionné."
+-- Webhook Discord pour recevoir les signalements
+Config.WebhookURL = "https://discord.com/api/webhooks/..."
 
+-- Nom de la commande pour ouvrir le menu
+Config.CommandName = "bug"
 
--- Messages Discord
-
-Config.WebhookURL = "https://discord.com/api/webhooks/1386273953340981318/RopcnlGNRknTDf_tnhzMSJW_PKpyn8xc8AP83OY744oAnWcODGIrEEDckUQNRxb9wjTz" -- Ton WebhookURL
-Config.NomServeur = "Fantastic Life"
-Config.EmbedTitre = "Un joueur a repéré un bug."
-Config.Embedcouleur = 65280 --vert
-
-
-
--- Notification du menus REPPORT BUG
-
-
--- ✅ Activer/désactiver les notifications
-Config.EnableNotifs = true -- True Or False
-
--- ⏱️ Temps entre chaque message (en secondes)
-Config.Interval = 900  -- 15 minutes
-
--- 📃 Liste des messages à afficher
+-- Messages personnalisés
 Config.Messages = {
-    "Vous avez repéré un bug ? Signalez-le avec /bug."
+    notify_sent = "📨 Signalement envoyé au staff.",
+    notify_error = "❌ Une erreur est survenue lors de l'envoi.",
+    notify_empty = "⚠️ Vous devez entrer un message avant d’envoyer.",
+    menu_title = "Signaler un Bug",
+    menu_description = "Entrez ici les détails du bug rencontré en jeu.",
+    footer = "Merci de contribuer à l’amélioration du serveur."
 }
 ```
 
@@ -83,7 +67,7 @@ Config.Messages = {
 ## 🧑‍💻 Rejoindre la communauté
 
 Pour du support, des mises à jour ou découvrir d’autres scripts :  
-🔗 Rejoins-nous sur https://discord.gg/235uNqVhBT
+🔗 Rejoins-nous sur [Ton Discord ici]
 
 ---
 
